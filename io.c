@@ -1,7 +1,7 @@
 #include "io.h"
 #include <stdio.h>
 
-void read_file(const char *filename)
+setting_t *read_file(const char *filename)
 {
     FILE *ifp = fopen(filename, "r");
     if (ifp != NULL)
