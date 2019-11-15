@@ -1,0 +1,120 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>CS447</title>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body bgcolor="#FBFBFB">
+
+
+<h2><font color="navy">Assignment 1</font></h2>
+<h2><font color="gray">The Existential LightBulb Problem</font></h2>
+<b>Out</b>: September 3, 2019.
+<br>
+
+<hr>
+
+Consider a collection of M lightbulbs and N switches.
+The switches can be placed either in a down or up position.
+Each lightbulb is connected to two of the switches and it can only be turned
+off if the two switches connected to it assume a specific configuration.
+
+<p>
+
+We ask if there is a configuration of the switches (down or up for each)
+so that all of the lightbulbs are on simultaneously.
+
+</p><hr>
+
+Suppose we represent the N switches as integers 1 through N.
+We represent each lightbulb as a pair of integers which encodes the
+configuration which avoids the lightbulb to be turned off.
+We will encode the up and down positions by using positive and negative integers.
+So, if a lightbulb is represented by the pair (i, -j), then this
+means the lightbulb is connected to switches i and j. If switch i is
+in the down position and switch j is in the up position, then the lightbulb
+is off, otherwise the lightbulb will be on.
+
+<hr>
+
+<strong>Example 1</strong>:
+Suppose we have 3 switches (represented as [1,2,3]) and 2 lightbulbs. 
+Suppose the first lightbulb is connected to switches 1 and 2
+while the second lightbulb is connected to switches 1 and 3.
+Assume that the first lightbulb can only be turned off if and only if both switches 1 and 2 are 
+in the down position. We encode this as [1,2]. 
+Assume that the second lightbulb can only be turned off if and only switch 1 is in the up
+position and switch 3 is in the down position. We encode this as [-1,3] where the negative
+sign encodes the down position for switch 1.
+
+<p>
+
+We represent this instance of the problem in a file as follows:
+	</p><pre>	3
+	2	
+	1 2
+	-1 3
+	</pre>
+The first line states that there are 3 switches.
+The second line states that there are 2 lightbulbs.
+The next two lines represent the critical configurations for the 2 lightbulbs.
+
+<p>
+
+<font color="navy">Answer</font>:
+If we use a configuration where switch 1 on, switch 2 off, and switch 3 on,
+then the 2 lightbulbs are simultaneously on. This "positive" configuration 
+is represented as [1,-2,3].
+
+</p><hr>
+
+<strong>Example 2</strong>:
+Consider another instance of the problem:
+	<pre>	3
+	4
+	1 2
+	1 -2
+	-1 3
+	-1 -3
+	</pre>
+So there are 3 switches and 4 lightbulbs.
+The next four lines represent the critical configurations for the 4 lightbulbs.
+
+<p>
+
+<font color="navy">Answer</font>:
+In this case, there is no configuration of the switches which allows all lightbulbs to be on.
+
+</p><hr>
+
+In summary, if there are N switches and M lightbulbs, then the file encoding contains
+M+2 lines where the first two lines contain the numbers N and M. The next M lines
+contain pairs of signed integers from the set -N,-N+1,..,-1,0,1,..,N.
+
+<p>
+
+Two sample files with 500 switches and 5000 lightbulbs:
+<a href="https://afsweb.clarkson.edu/class/cs447/out-no1.txt">instance1</a> and
+<a href="https://afsweb.clarkson.edu/class/cs447/out-yo1.txt">instance2</a>.
+
+</p><hr>
+
+<strong><font color="blue">PROBLEM</font></strong><br>
+Given an instance of this lightbulb problem, determine if there is a configuration of
+the switches so that all lightbulbs are simultaneously on.
+If the answer is YES, then provide the sequence of up/down for each switch.
+If the answer is NO, provide a "proof" of this fact.
+
+<hr>
+
+<h3>What to Hand-in</h3>
+
+Submit via email a single compressed file that contains all your source file(s).
+Your program should solve the problem in general but specify your solutions for 
+the two sample files above. If the instance has no solution, your program should
+indicate which variable caused conflicts. If the instance has a solution, your
+program should output the solution as a sequence of signed integers 
+(say, -1 2 3 -4 -5 6 etc.).
+
+
+
+
+</body></html>
