@@ -1,5 +1,6 @@
 #include "io.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 setting_t *read_file(const char *filename)
 {

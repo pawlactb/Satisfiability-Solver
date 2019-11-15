@@ -16,4 +16,7 @@ typedef struct setting_s
     switch_t *m_switches;
 } setting_t;
 
+switch_t make_switch(int, int);
+setting_t *add_switch(setting_t *, switch_t);
+
 #endif //inclusion guard
